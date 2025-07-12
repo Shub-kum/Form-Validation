@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bootstrap Registration Form</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Registration Form</h2>
+
+    <% if(errors.length > 0) {%>
+    <div class="row mb-3">
+      <div class="col-6">
+<ul class="alert alert-danger"style="list-style-position:inside;">
+<% errors.forEach(error => { %>
+  <li><%= error.msg %></li>
+<%});%>
+</ul>
+      </div>
+    </div>
+   <% }%>
+
+    <form action="/saveform" method="post" class="border p-4 shadow-sm rounded bg-light">
+
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" name="username">
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email">
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password">
+        </div>
+
+        <div class="mb-3">
+            <label for="age" class="form-label">Age</label>
+            <input type="number" class="form-control" id="age" name="age" min="1">
+        </div>
+
+        <div class="mb-3">
+            <label for="city" class="form-label">City</label>
+            <select class="form-select" id="city" name="city">
+                <option value="" disabled selected>Select your city</option>
+                <option value="new-york">New York</option>
+                <option value="los-angeles">Delhi</option>
+                <option value="chicago">Chicago</option>
+                <option value="houston">Noida</option>
+                <option value="miami">Mumbai</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+</div>
+
+<!-- Bootstrap JS (optional) -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
+
+</body>
+</html>
